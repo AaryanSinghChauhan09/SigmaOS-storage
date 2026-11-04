@@ -11,6 +11,8 @@ keywords = ["storage", "disk", "lvm"]
 categories = ["os"]
 
 [dependencies]
+toml = "0.8"
+thiserror = "1.0"
 sigmaos-kernel = { version = "0.1", path = "../SigmaOS-kernel" }
 sigmaos-filesystem = { version = "0.1", path = "../SigmaOS-filesystem" }
 
