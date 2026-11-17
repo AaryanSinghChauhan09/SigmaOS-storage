@@ -1,6 +1,6 @@
 [component]
 name = "SigmaOS-storage"
-description = "Block layer, cache, filesystem and mount lifecycle"
+description = "Storage component for SigmaOS"
 version = "0.1.0"
 tier = 1
 
