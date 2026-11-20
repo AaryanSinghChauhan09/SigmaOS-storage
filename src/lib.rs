@@ -9,6 +9,7 @@ pub mod volume;
 pub mod partition;
 pub mod snapshot;
 pub mod io;
+pub mod sigmadiskmanager;
 
 pub use block::{BlockDevice, BlockOp, BlockResult};
 pub use volume::{Volume, VolumeManager};
