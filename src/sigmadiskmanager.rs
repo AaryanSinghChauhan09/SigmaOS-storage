@@ -285,26 +285,29 @@ mod tests {
         init_sigmadiskmanager();
         let before = get_sigmadiskmanager().disk_count();
 
-        let mut manager_mut = get_sigmadiskmanager_mut();
-        manager_mut.add_disk(
-            "sda".to_string(),
-            "/dev/sda".to_string(),
-            1000000000000,
-            DiskType::SSD,
-        );
+        {
+            let mut manager_mut = get_sigmadiskmanager_mut();
+            manager_mut.add_disk(
+                "sdb".to_string(),
+                "/dev/sdb".to_string(),
+                2000000000000,
+                DiskType::HDD,
+            );
+        }
         assert_eq!(get_sigmadiskmanager().disk_count(), before + 1);
     }
 
     #[test]
     fn test_add_disk_convenience() {
         init_sigmadiskmanager();
+        let before = get_sigmadiskmanager().disk_count();
         let id = add_disk(
-            "sda".to_string(),
-            "/dev/sda".to_string(),
-            1000000000000,
-            DiskType::SSD,
+            "sdc".to_string(),
+            "/dev/sdc".to_string(),
+            3000000000000,
+            DiskType::NVMe,
         );
-        assert_eq!(id, "disk-1");
+        assert_eq!(id, format!("disk-{}", before + 1));
 
         let manager = get_sigmadiskmanager();
         assert!(manager.get_disk(&id).is_some());
