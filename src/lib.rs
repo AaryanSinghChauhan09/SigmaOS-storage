@@ -18,3 +18,6 @@ pub use volume::{Volume, VolumeManager};
 pub use partition::{Partition, PartitionTable, GptEntry};
 pub use snapshot::{Snapshot, SnapshotManager};
 pub use io::{IoRequest, IoScheduler};
+
+/// RAID array management: levels, devices, activation.
+pub mod sigmaraid;
